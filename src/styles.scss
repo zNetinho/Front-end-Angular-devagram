@@ -1,1 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
+@import './assets/fonts/fonts.scss';
+
+// RESET GLOBAL
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--fontRegular);
+    font-size: 14px;
+}
+
+body,
+html {
+    height: 100%;
+}
+
+:root {
+    //Fonts do site
+    --fontRegular: BiennaleRegular;
+    --fontMedium: BiennaleMedium;
+    --fontBold: BiennaleBold;
+
+    --corPrimaria02: #5E49FF;
+    --corPrimaria03: #25CBD3;
+    --corPrimaria04: #F0F5FF;
+
+    --branco:     #FFF;
+    --corCinza00: #F4F4F4;
+    --corCinza01: #DADADA;
+    --corCinza02: #7C7786;
+    --corCinza03: #4D4C4D;
+    --corCinza04: #333333;
+} 

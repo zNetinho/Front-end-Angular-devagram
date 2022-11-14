@@ -1,0 +1,42 @@
+@mixin primary {
+  color: var(--branco);
+  background-color: var(--corPrimaria02);
+}
+
+@mixin btnOutline {
+  background-color: var(--branco);
+  color: var(--corPrimaria02);
+  border: 1px solid var(--corPrimaria02);
+}
+
+.btn {
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+
+  &.primary {
+    @include primary;
+
+    &:hover {
+      @include btnOutline;
+    }
+
+    &.outline {
+        @include btnOutline;
+
+      &:hover {
+        @include primary;
+      }
+    }
+
+    &:disabled {
+      opacity: 0.5;
+    }
+
+    &:active {
+      position: relative;
+      top: 1px;
+    }
+  }
+}
