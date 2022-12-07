@@ -1,3 +1,4 @@
+import { AbstractControl } from '@angular/forms';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -7,16 +8,31 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class InputPublicComponent implements OnInit {
 
+  @Input() referenceForm?: AbstractControl;
+  @Input() image?: string;
+  @Input() type?: string;
   @Input() placeHolder?: string;
-  @Input() cor: string = '';
-  @Input() classeCss: string = '';
-  @Input() type: string = 'button';
-  @Input() disable: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
 
+  }
+
+  public onChanged(event: any): void{
+    this.referenceForm?.setValue(event);
+    this.referenceForm?.markAsDirty();
+  }
+
+  public obtainErrorMessage(): string {
+    if(!this.referenceForm?.errors) {
+      return ''
+    }
+    if(this.referenceForm?.errors['required']){
+      return 'field  is need'
+    }
+
+    return 'problem marked is form';
   }
 
 }

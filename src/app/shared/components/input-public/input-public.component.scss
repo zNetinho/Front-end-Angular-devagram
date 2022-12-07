@@ -1,0 +1,14 @@
+.container__inputsLogin {
+    .inputPublico {
+        border-bottom: 1px solid var(--corPrimaria02);
+        display: flex;
+
+        input {
+            border: none;
+            outline: none;
+            color: var(--corPrimaria02);
+            margin-left: 12px;
+            flex: 1;
+        }
+    }
+}

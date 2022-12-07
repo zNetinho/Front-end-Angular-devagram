@@ -1,0 +1,20 @@
+<div
+    [ngClass]="['containerUploadImage', classCssContainer]"
+    (click)="inputArquivo.click()"
+>
+    <div class="conatinerPreview" *ngIf="imagePreview">
+        <img 
+        alt="imagem previsualização"
+        [class]="classCssPreviewImage"
+        [src]="imagePreview"
+        >
+    </div>
+    <input 
+        type="file"
+
+        accept="image/*"
+        (change)="changePhoto($event)"
+        #inputArquivo
+        >
+
+</div>

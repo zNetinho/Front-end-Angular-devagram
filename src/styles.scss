@@ -31,4 +31,20 @@ html {
     --corCinza02: #7C7786;
     --corCinza03: #4D4C4D;
     --corCinza04: #333333;
-} 
+    --vermelho: #FF0000
+}
+
+input {
+    &::placeholder, 
+    &:-ms-input-placeholder,
+    &::-ms-input-placeholder{
+        color:  var(--corCinza02);
+    }
+  
+}
+
+.msgError {
+    color: var(--vermelho);
+    margin: 5px 0 0;
+    font-size: 90%;
+}
