@@ -1,0 +1,15 @@
+@import '../../../../assets/styles/variables.scss';
+
+app-page-public {
+    app-input-public:first-of-type {
+        display: block;
+        margin-top: 56px;
+        margin-bottom: 26px;
+    }
+
+    @media screen and (min-width: $breakpoint) {
+        app-input-public:first-of-type {
+            margin-top: 0;
+        }
+    }
+}

@@ -1,0 +1,39 @@
+@import '../../../../assets/styles/variables.scss';
+
+.containerPagePublic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 32px;
+
+    .containerContent {
+        width: 100%;
+    }
+
+    @media screen and (min-width: $breakpoint) {
+        flex-direction: row;
+        padding: 0 140px;
+
+        .containerLogo {
+            flex: 2;
+            display: flex;
+            justify-content: center;
+            height: 40%;
+
+            .logo {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+
+        .containerContent {
+            flex: 1;
+            border: 1px solid var(--corPrimaria02);
+            border-radius: 26px;
+            padding: 55px;
+        }
+    }
+}

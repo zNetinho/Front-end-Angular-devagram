@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-page-public',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PagePublicComponent implements OnInit {
 
+@Input() classCss:string = '';
+@Input() classCssLogo:string = '';
+@Input() textBtnSubmit?:string = '';
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onChecked(): void {
+    console.log('Olá')
   }
 
 }

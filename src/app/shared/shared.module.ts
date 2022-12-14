@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
 import { InputPublicComponent } from './components/input-public/input-public.component';
 import { ButtonPublicComponent } from './components/button-public/button-public.component';
 import { PhotoComponent } from './components/photo/photo.component';
 import { UploadPhotoComponent } from './components/upload-photo/upload-photo.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { PagePublicComponent } from './components/views/page-public/page-public.component';
+import { PagePublicComponent } from './views/page-public/page-public.component';
+import { FooterPublicComponent } from './components/footer-public/footer-public.component';
 
 @NgModule({
   declarations: [
@@ -14,13 +17,18 @@ import { PagePublicComponent } from './components/views/page-public/page-public.
     PhotoComponent,
     UploadPhotoComponent,
     PagePublicComponent,
+    FooterPublicComponent,
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   exports: [
+    PagePublicComponent,
+    InputPublicComponent,
+    FooterPublicComponent
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,26 @@
+<app-page-public textBtnSubmit="Login">
+  <app-input-public
+    image="assets/icon/envelope.svg"
+    type="e-mail"
+    placeHolder="email"
+    [referenceForm]="obtainReference('email')"
+    contentForm
+  >
+  </app-input-public>
+  <app-input-public
+    image="assets/icon/key.svg"
+    type="password"
+    placeHolder="Password"
+    [referenceForm]="obtainReference('password')"
+    contentForm
+  >
+  </app-input-public>
+
+  <app-footer-public
+    ask="Não possui uma conta?"
+    textToAction="Faça seu cadastro agora!"
+    route="register"
+    footer
+  >
+  </app-footer-public>
+</app-page-public>
