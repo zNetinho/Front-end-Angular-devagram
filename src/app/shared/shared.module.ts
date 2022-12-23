@@ -9,7 +9,7 @@ import { UploadPhotoComponent } from './components/upload-photo/upload-photo.com
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PagePublicComponent } from './views/pages/page-public/page-public.component';
 import { FooterPublicComponent } from './components/footer-public/footer-public.component';
-import { PageLoginModule } from './views/pages/page-login/page-login.module';
+import { PageLoginModule } from '../page-login/page-login.module';
 import { RegisterModule } from '../register/register.module';
 
 @NgModule({
@@ -26,9 +26,14 @@ import { RegisterModule } from '../register/register.module';
     ReactiveFormsModule,
     FormsModule,
     RouterModule,
-    PageLoginModule,
-    RegisterModule,
   ],
-  exports: [PagePublicComponent, InputPublicComponent, FooterPublicComponent],
+  exports: [
+    InputPublicComponent,
+    ButtonPublicComponent,
+    PhotoComponent,
+    UploadPhotoComponent,
+    PagePublicComponent,
+    FooterPublicComponent,
+  ]
 })
 export class SharedModule {}

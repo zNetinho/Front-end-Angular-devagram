@@ -8,11 +8,11 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./shared/views/pages/page-login/page-login.module').then(m => m.PageLoginModule)
+    loadChildren: () => import('./page-login/page-login.module').then(m => m.PageLoginModule)
   },
   {
     path: '',
-    loadChildren: () => import('./shared/views/pages/page-login/page-login.module').then(m => m.PageLoginModule)
+    loadChildren: () => import('./page-login/page-login.module').then(m => m.PageLoginModule)
   }
 ];
 

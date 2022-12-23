@@ -9,8 +9,6 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 export class PageLoginComponent implements OnInit {
 
   public form: FormGroup;
-
-
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
       image:[null],
