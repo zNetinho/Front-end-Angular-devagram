@@ -26,13 +26,26 @@ export class InputPublicComponent implements OnInit {
 
   public obtainErrorMessage(): string {
     if(!this.referenceForm?.errors) {
-      return ''
-    }
-    if(this.referenceForm?.errors['required']){
-      return 'field  is need'
+      return '';
     }
 
-    return 'problem marked is form';
+    if(this.referenceForm?.errors['required']){
+      return 'field  is need';
+    }
+
+    if(this.referenceForm?.errors['email']){
+      return 'email is not valid';
+    }
+
+    if(this.referenceForm?.errors['minlength']){
+      return `Minimun caracter is need ${this.referenceForm.errors['minlength'].requiredLength} caracters`;
+    }
+
+    if(this.referenceForm?.errors['re_password']){
+     return 'Password not combine';
+    }
+
+    return '';
   }
 
 }

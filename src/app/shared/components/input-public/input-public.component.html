@@ -8,7 +8,7 @@
         height="20px"
         >
 
-        <input 
+        <input
         [type]="type"
         [ngModel]="referenceForm?.value"
         [placeholder]="placeHolder"
@@ -17,6 +17,6 @@
     </div>
 
     <p *ngIf="referenceForm?.invalid && referenceForm?.dirty" class="msgError">
-        {{ obtainErrorMessage }}
+        {{ obtainErrorMessage() }}
     </p>
 </div>

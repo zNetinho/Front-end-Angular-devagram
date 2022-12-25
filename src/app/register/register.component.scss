@@ -1,0 +1,14 @@
+app-page-public {
+  app-input-public {
+    display: block;
+    margin-bottom: 24px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    &:first-of-type {
+      margin-top: 48px;
+    }
+  }
+}

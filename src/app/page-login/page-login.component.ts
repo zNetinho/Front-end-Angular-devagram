@@ -11,9 +11,8 @@ export class PageLoginComponent implements OnInit {
   public form: FormGroup;
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
-      image:[null],
-      name:['', Validators.required],
-      password:['', Validators.required]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(4)]],
     });
   }
 
@@ -21,15 +20,15 @@ export class PageLoginComponent implements OnInit {
     console.log('Image altered')
   }
 
-  public obtainReference(name: string): AbstractControl {
-    return this.form.controls[name];
-  }
-
   onSubmit() {
     console.log('Ola')
   }
 
   ngOnInit(): void {
+  }
+
+  public obtainReference(fieldName: string): AbstractControl {
+    return this.form.controls[fieldName];
   }
 
 }

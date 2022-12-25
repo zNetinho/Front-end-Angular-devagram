@@ -1,1 +1,53 @@
-<p>register works!</p>
+<app-page-public
+    classCss="pageRegister"
+    classCssLogo="desktop"
+    textBtnSubmit="Cadastrar">
+  <app-upload-photo
+    imagePreview="assets\icon\User.svg"
+    classCssPreviewImage="avatarPreview"
+    classCssContainer="pageRegister"
+    [referenceForm]="obtainReference('file')"
+    contentForm
+  >
+  </app-upload-photo>
+  <app-input-public
+    image="assets/icon/userInput.svg"
+    type="text"
+    placeHolder="Nome completo"
+    [referenceForm]="obtainReference('user')"
+    contentForm
+  >
+  </app-input-public>
+  <app-input-public
+    image="assets/icon/envelope.svg"
+    type="e-mail"
+    placeHolder="email"
+    [referenceForm]="obtainReference('email')"
+    contentForm
+  >
+  </app-input-public>
+  <app-input-public
+    image="assets/icon/key.svg"
+    type="password"
+    placeHolder="Password"
+    [referenceForm]="obtainReference('password')"
+    contentForm
+  >
+  </app-input-public>
+  <app-input-public
+    image="assets/icon/key.svg"
+    type="password"
+    placeHolder="Re-Password"
+    [referenceForm]="obtainReference('re_password')"
+    contentForm
+  >
+  </app-input-public>
+
+  <app-footer-public
+    ask="Já possui uma conta?"
+    textToAction="Faça seu login agora!"
+    route="/login"
+    footer
+  >
+  </app-footer-public>
+</app-page-public>

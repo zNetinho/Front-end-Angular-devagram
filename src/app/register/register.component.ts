@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { checkedPassword } from '../shared/validators/validatepassword.validator';
 
 @Component({
   selector: 'app-register',
@@ -12,14 +13,23 @@ export class RegisterComponent implements OnInit {
 
   constructor(private fb:FormBuilder) {
     this.form = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(3)]],
+      file: [null],
+      user: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(4)]],
-      re_password: ['', [Validators.required, Validators.minLength(4)]]
+      re_password: ['', [Validators.required, checkedPassword()]]
     });
    }
 
   ngOnInit(): void {
+  }
+
+  public obtainReference(fieldName: string): AbstractControl {
+    return this.form.controls[fieldName];
+  }
+
+  onSubmit() {
+    console.log('Ola')
   }
 
 }
