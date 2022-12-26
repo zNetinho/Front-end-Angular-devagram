@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { checkedPassword } from '../shared/validators/validatepassword.validator';
+import { RegisterApiService } from './services/register-api.service';
 
 @Component({
   selector: 'app-register',
@@ -11,12 +12,12 @@ export class RegisterComponent implements OnInit {
 
   public form: FormGroup;
 
-  constructor(private fb:FormBuilder) {
+  constructor(private fb:FormBuilder, private serviceRegister: RegisterApiService) {
     this.form = this.fb.group({
       file: [null],
-      user: ['', [Validators.required, Validators.minLength(3)]],
+      name: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(4)]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
       re_password: ['', [Validators.required, checkedPassword()]]
     });
    }
@@ -28,8 +29,31 @@ export class RegisterComponent implements OnInit {
     return this.form.controls[fieldName];
   }
 
-  onSubmit() {
-    console.log('Ola')
+  async onSubmit() {
+    console.log('cadastro')
+    if(this.form.invalid) {
+      console.log('preencha os campos corretamente')
+      return console.log('erro nos dados')
+    }
+     try {
+      const valuesForm = this.form.value;
+      let bodyRequest = valuesForm
+
+      if(bodyRequest.file) {
+        bodyRequest = new FormData();
+        bodyRequest.append('file', valuesForm.file)
+        bodyRequest.append('name', valuesForm.name)
+        bodyRequest.append('email', valuesForm.email)
+        bodyRequest.append('password', valuesForm.password)
+      }
+
+      await this.serviceRegister.register(bodyRequest);
+      console.log('conta criada com sucesso');
+      console.log(valuesForm)
+     } catch (e: any) {
+      console.log(e)
+        const msgError = e?.error?.erro || 'Erro no cadastro'
+     }
   }
 
 }

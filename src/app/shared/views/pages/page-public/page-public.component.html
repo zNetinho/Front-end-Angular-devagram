@@ -3,13 +3,14 @@
     <img src="assets/icon/Logo.svg" alt="Logo devaria" class="logo" />
   </div>
   <div class="containerContent">
-    <form (submit)="onChecked()">
+    <form>
       <ng-content select="[contentForm]"></ng-content>
 
       <app-button-public
         [text]="textBtnSubmit"
         type="submit"
         classCss="btnPublic"
+        (click)="onSubmit()"
       >
       </app-button-public>
     </form>

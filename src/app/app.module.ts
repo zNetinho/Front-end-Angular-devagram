@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 
 import { PageLoginModule } from './page-login/page-login.module';
 import { RegisterModule } from './register/register.module';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,12 @@ import { RegisterModule } from './register/register.module';
     PageLoginModule,
     RegisterModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'DEVAGRAM_URL_API',
+      useValue: environment.apiUrl
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

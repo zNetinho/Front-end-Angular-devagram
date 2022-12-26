@@ -1,7 +1,9 @@
 <app-page-public
     classCss="pageRegister"
     classCssLogo="desktop"
-    textBtnSubmit="Cadastrar">
+    textBtnSubmit="Cadastrar"
+    (submitForm)="onSubmit()"
+    >
   <app-upload-photo
     imagePreview="assets\icon\User.svg"
     classCssPreviewImage="avatarPreview"

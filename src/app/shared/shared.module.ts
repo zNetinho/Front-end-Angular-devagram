@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { InputPublicComponent } from './components/input-public/input-public.component';
@@ -26,6 +27,7 @@ import { RegisterModule } from '../register/register.module';
     ReactiveFormsModule,
     FormsModule,
     RouterModule,
+    HttpClientModule
   ],
   exports: [
     InputPublicComponent,
