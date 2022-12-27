@@ -5,6 +5,7 @@ import { DevagramApiService } from './../shared/services/devagram-api.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { DevagramUserService } from '../shared/services/devagram-user.service';
+import { userLogged } from './types/userLogged.types';
 
 @Injectable({
   providedIn: 'root'
@@ -30,8 +31,12 @@ export class AuthenticationServiceService extends DevagramApiService {
       localStorage.setItem('email', resLogin.email);
 
       const dataUser = await this.userService.findDataUser();
-      localStorage.setItem('id', dataUser._id);
+      localStorage.setItem('_id', dataUser._id);
 
+      if(dataUser.avatar) {
+        localStorage.setItem('avatar', dataUser.avatar);
+      }
+      this.router.navigateByUrl('/');
   }
 
   isLogged(): boolean {
@@ -42,7 +47,21 @@ export class AuthenticationServiceService extends DevagramApiService {
     localStorage.removeItem('token');
     localStorage.removeItem('name');
     localStorage.removeItem('email');
+    localStorage.removeItem('avatar');
+    localStorage.removeItem('id');
     this.router.navigateByUrl('/login');
+  }
+
+  obtainUser(): userLogged | null {
+    if(!this.isLogged()){
+      return null
+    }
+    return {
+      id: localStorage.getItem('id'),
+      name: localStorage.getItem('name'),
+      email: localStorage.getItem('email'),
+      avatar: localStorage.getItem('avatar')
+    } as userLogged
   }
 
 }

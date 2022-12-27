@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthenticationGuard } from './authentication/guard/authentication.guard';
 
 const routes: Routes = [
   {
@@ -11,9 +12,12 @@ const routes: Routes = [
     loadChildren: () => import('./page-login/page-login.module').then(m => m.PageLoginModule)
   },
   {
+    //Garante que somente usuarios logados tenha acesso a pagina home
     path: '',
-    loadChildren: () => import('./page-login/page-login.module').then(m => m.PageLoginModule)
-  }
+    canActivate: [AuthenticationGuard],
+    loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+  },
+
 ];
 
 @NgModule({

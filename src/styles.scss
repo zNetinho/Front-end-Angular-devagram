@@ -69,3 +69,21 @@ input {
     display: none !important;
   }
 }
+
+body {
+  @media screen and (min-width: $breakpoint) {
+    background-color: var(--corCinza00);
+    background-image: url(/assets/icon/fundoDesktop.svg);
+  }
+}
+
+.layoutInterno {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .contentInterno{
+    flex: 1;
+  }
+}
+

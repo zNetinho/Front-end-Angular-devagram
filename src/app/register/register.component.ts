@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { checkedPassword } from '../shared/validators/validatepassword.validator';
 import { RegisterApiService } from './services/register-api.service';
+import { AuthenticationServiceService } from '../authentication/authentication-service.service';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,7 @@ export class RegisterComponent implements OnInit {
 
   public form: FormGroup;
 
-  constructor(private fb:FormBuilder, private serviceRegister: RegisterApiService) {
+  constructor(private fb:FormBuilder, private serviceRegister: RegisterApiService, private authenticationService: AuthenticationServiceService) {
     this.form = this.fb.group({
       file: [null],
       name: ['', [Validators.required, Validators.minLength(3)]],
@@ -30,7 +31,6 @@ export class RegisterComponent implements OnInit {
   }
 
   async onSubmit() {
-    console.log('cadastro')
     if(this.form.invalid) {
       console.log('preencha os campos corretamente')
       return console.log('erro nos dados')
@@ -39,6 +39,7 @@ export class RegisterComponent implements OnInit {
       const valuesForm = this.form.value;
       let bodyRequest = valuesForm
 
+      //se encontrar arquivo no registro cria um FormData.
       if(bodyRequest.file) {
         bodyRequest = new FormData();
         bodyRequest.append('file', valuesForm.file)
@@ -48,6 +49,10 @@ export class RegisterComponent implements OnInit {
       }
 
       await this.serviceRegister.register(bodyRequest);
+      await this.authenticationService.login({
+        email: valuesForm.email,
+        password:valuesForm.password
+      })
       console.log('conta criada com sucesso');
       console.log(valuesForm)
      } catch (e: any) {

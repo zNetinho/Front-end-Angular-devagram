@@ -3,4 +3,7 @@ export type userDevagram = {
   name: string,
   email: string,
   avatar: string,
+  publication: number,
+  followers: number,
+  following: number
 }

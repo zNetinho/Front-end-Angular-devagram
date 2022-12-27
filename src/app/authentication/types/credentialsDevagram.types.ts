@@ -1,4 +1,4 @@
 export type devagramCredentials = {
-    login: string,
+    email: string,
     password: string
 }

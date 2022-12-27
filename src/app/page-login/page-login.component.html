@@ -1,4 +1,6 @@
-<app-page-public textBtnSubmit="Login">
+<app-page-public
+  textBtnSubmit="Login"
+ (submitForm)="onSubmit()">
   <app-input-public
     image="assets/icon/envelope.svg"
     type="e-mail"

@@ -11,4 +11,8 @@ export class DevagramUserService extends DevagramApiService {
       return this.get('user')
     }
 
+    searchUsers(nameFind: string): Promise<Array<userDevagram>> {
+      return this.get('search?name=' + nameFind)
+    }
+
 }
