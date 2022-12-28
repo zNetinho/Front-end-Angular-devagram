@@ -4,6 +4,8 @@
 	width: 100%;
 
 	.containerPosts {
+		background-color: var(--branco);
+		height: auto;
 		a {
 			text-decoration: none;
 		}
@@ -20,15 +22,18 @@
 			strong.nameUser{
 				font-size: 16px;
 				color: var(--corCinza04);
+				font-weight: 600;
 			}
 
 		}
 
 		.post {
-				margin: 2px 0 24px 0px;
+				margin: 2px 0 45px 0px;
 
 				>img {
 					width: 100%;
+					max-width: 390px;
+					object-fit: cover;
 				}
 
 				strong.nameUser {
@@ -36,6 +41,7 @@
 					margin-right: 3px;
 					color: var(--corCinza04);
 					font-size: 14px;
+					font-weight: 600;
 				}
 
 				.footerPost{
@@ -49,11 +55,12 @@
 							align-items: center;
 							margin: 10px 12px;
 
-							img:first-of-type {
+							img:last-of-type {
+								margin-left: 12px;
 								margin-right: 12px;
 							}
 
-							> span, strong {
+							> span, > strong {
 								margin-left: 2px;
 								font-size: 12px;
 							}
@@ -63,21 +70,21 @@
 					.infoPost {
 						margin-bottom: 4px;
 
-						strong.nameUser {
+						> strong.nameUser {
 							margin-right: 5px;
 						}
 
-						p.description {
+						> p.description {
 							margin-right: 5px;
 						}
 					}
 
 					.comments {
-						strong.nameUser {
+						> strong.nameUser {
 							margin-right: 5px;
 						}
 
-						p.description {
+						> p.description {
 
 						}
 					}
@@ -103,6 +110,58 @@
 				}
 
 				.headerPost{
+					margin: 0 0 0 6px;
+				}
+
+				.post {
+
+					> img {
+						width: 100%;
+						max-width: 666px;
+					}
+					.footerPost {
+						.actionPost {
+							.icons {
+								> img {
+									width: 28px;
+									height: 28px;
+								}
+								> span {
+									font-size: 14px;
+									margin-left: 10px;
+									color: var(--corCinza04);
+								}
+								> strong {
+									font-size: 14px;
+									font-weight: 600;
+								}
+							}
+						}
+
+						.infoPost {
+							> strong.nameUser {
+								font-size: 14px;
+								color: var(--corCinza04);
+							}
+							> p.description {
+								font-size: 14px;
+								color: var(--corCinza04);
+							}
+
+						}
+
+						.comments {
+							> strong.nameUser {
+								font-size: 14px;
+								color: var(--corCinza04);
+							}
+							> p.description {
+								font-size: 14px;
+								color: var(--corCinza04);
+							}
+						}
+
+					}
 				}
 
 				strong.nameUser {

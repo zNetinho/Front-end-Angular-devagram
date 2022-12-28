@@ -74,6 +74,7 @@ body {
   @media screen and (min-width: $breakpoint) {
     background-color: var(--corCinza00);
     background-image: url(/assets/icon/fundoDesktop.svg);
+	object-fit: contain;
   }
 
 }

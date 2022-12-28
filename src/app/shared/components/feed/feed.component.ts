@@ -51,6 +51,19 @@ export class FeedComponent implements OnInit {
 				avatar:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgA8q2wmiY7tf9DFYiOug25mqSyEdwAGo3RA&usqp=CAU'
 			},
 		} as Post,
+		{
+			contentPost:'https://www.blogderocha.com.br/wp-content/uploads/2016/02/Imagens-Tumblr-Notas-de-musicas-20120802-tumblr_lhn2sikgjl1qcmnr3o1_500.jpg',
+			amountLike: 2,
+			comments: [{
+				name:'Bruno',
+				comment:'Lorem ipsum 123'
+			}],
+			description:'Esse comentario e somente para ter um mock e realizar a estilização antes de chamar da API',
+			user: {
+				name: 'Neto',
+				avatar:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgA8q2wmiY7tf9DFYiOug25mqSyEdwAGo3RA&usqp=CAU'
+			},
+		} as Post,
 	];
 
 	constructor() {}
