@@ -1,0 +1,40 @@
+<div class="containerFeed">
+	<div class="containerPosts" *ngFor="let post of posts">
+		<a [routerLink]="['/perfil' + '{{ posts._id }}']">
+		<div class="headerPost">
+			<app-photo
+				[src]="post.user?.avatar"
+				classCss="avatarPost"
+			>
+			</app-photo>
+				<strong class="nameUser"> {{ post.user?.name }}</strong>
+		</div>
+		</a>
+		<div class="post">
+			<img
+			 	src="{{ post.contentPost }}"
+			 	alt="Imagem do post" />
+			<div class="footerPost">
+				<div class="actionPost">
+				   <div class="icons">
+					   <img
+						   src="assets/icon/heart.svg"
+						   alt="Ícone de curtir" />
+					   <img
+						   src="assets/icon/comment.svg"
+						   alt="Ícone do comentário" />
+						   <span>Curtido por <strong>{{ post.amountLike }} pessoas</strong></span>
+				   </div>
+				</div>
+				<div class="infoPost">
+					<strong class="nameUser"> {{ post.user?.name }} </strong>
+					<p class="description">{{ post.description }}</p>
+				</div>
+				<div class="comments" *ngFor="let comment of post.comments">
+				   <strong class="nameUser"> {{ comment.name }} </strong>
+				   <p class="description"> {{ comment.comment }} </p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

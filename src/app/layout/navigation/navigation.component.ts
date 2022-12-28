@@ -11,16 +11,16 @@ export class NavigationComponent implements OnInit {
 
 	mapRoutes: itemMenus = {
 		home: {
-			img:'home-2',
+			img:'home',
 			routes: ['/']
 		},
 		publication: {
 			img:'plus-square',
-			routes: ['']
+			routes: ['/post']
 		},
 		perfil: {
-			img:'User',
-			routes: ['']
+			img:'user-gray',
+			routes: ['/perfil']
 		}
 	}
 

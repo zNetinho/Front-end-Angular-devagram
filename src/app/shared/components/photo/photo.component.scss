@@ -1,7 +1,15 @@
-.avatar {
-    height: 32px;
-    width: 32px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 8px;
-}
+
+	.avatar {
+		height: 32px;
+		width: 32px;
+		border-radius: 50%;
+		object-fit: cover;
+		margin-right: 8px;
+
+		&.avatarPost {
+			width: 40px;
+			height: 40px;
+			object-fit: cover;
+	}
+	}
+

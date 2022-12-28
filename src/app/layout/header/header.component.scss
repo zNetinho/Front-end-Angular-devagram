@@ -65,14 +65,20 @@
     }
   }
 
+//   Desktop
   @media screen and (min-width: $breakpoint) {
     border: none;
     margin-bottom: 35px;
 
     .contentHeader {
-      width: 60%;
+      width: 75%;
       margin: auto;
+
       justify-content: center;
+
+	  .logoHeader {
+		padding: 0 40px;
+	}
 
       .barSearch {
         flex: .45;
@@ -84,7 +90,7 @@
       border-top: none;
       margin: auto;
       right: 0;
-      left: 135px;
+      left: 33px;
       cursor: pointer;
       box-shadow: 0 4px 5px var(--corCinza01);
 
@@ -97,5 +103,6 @@
         }
       }
     }
+
   }
 }

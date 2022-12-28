@@ -12,6 +12,7 @@ import { PagePublicComponent } from './views/pages/page-public/page-public.compo
 import { FooterPublicComponent } from './components/footer-public/footer-public.component';
 import { PageLoginModule } from '../page-login/page-login.module';
 import { RegisterModule } from '../register/register.module';
+import { FeedComponent } from './components/feed/feed.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { RegisterModule } from '../register/register.module';
     UploadPhotoComponent,
     PagePublicComponent,
     FooterPublicComponent,
+    FeedComponent,
   ],
   imports: [
     CommonModule,
@@ -36,6 +38,7 @@ import { RegisterModule } from '../register/register.module';
     UploadPhotoComponent,
     PagePublicComponent,
     FooterPublicComponent,
+	FeedComponent
   ]
 })
 export class SharedModule {}

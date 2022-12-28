@@ -12,7 +12,7 @@ export class DevagramUserService extends DevagramApiService {
     }
 
     searchUsers(nameFind: string): Promise<Array<userDevagram>> {
-      return this.get('search?name=' + nameFind)
+      return this.get('search?nameFind=' + nameFind)
     }
 
 }

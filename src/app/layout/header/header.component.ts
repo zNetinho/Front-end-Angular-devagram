@@ -13,19 +13,7 @@ import { AuthenticationServiceService } from 'src/app/authentication/authenticat
 export class HeaderComponent implements OnInit {
 
   termSearch: string = '';
-  searchResult: Array<userDevagram> = [
-    {
-      _id: '14501435171145',
-      name: 'Neto flavio',
-      email: 'teste1@123.com',
-      avatar: 'https://cdn.cosmicjs.com/19458ae0-8571-11ed-a98f-051589794d26-1840618-imagem-perfil-icone-masculino-icone-humano-ou-pessoa-sinal-e-simbolo-grÃ¡tis-vetor.jpg'
-    } as userDevagram,
-    {
-      _id: '171874176421684',
-      name: 'Bruno thiago',
-      email: 'teste2@123.com'
-    } as userDevagram
-  ];
+  searchResult: Array<userDevagram> = [];
 
   constructor(private router: Router,
               private apiUser: DevagramUserService,
@@ -38,7 +26,7 @@ export class HeaderComponent implements OnInit {
   }
 
   async findingUsers(): Promise<void> {
-    if(this.termSearch.length < 3) {
+    if(this.termSearch.length < 2) {
       return;
     }
     try {

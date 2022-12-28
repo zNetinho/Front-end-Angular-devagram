@@ -1,38 +1,41 @@
 <header class="headerPrincipal">
-  <div class="contentHeader">
-    <div class="logoHeader">
-      <img src="../../../assets/icon/logoHorizontal.svg"
-           alt="Logo horizontal"
-           (click)="returnToHome()"
-           />
-    </div>
-    <div class="barSearch">
-      <div class="iconSearch">
-        <img src="assets/icon/search.svg"
-             alt="Icone da lupa de pesquisa"
-             />
-      </div>
-      <input type="text"
-             placeholder="Pesquisar"
-             [(ngModel)]="termSearch"
-             (keyup)="findingUsers()"
-             />
-    </div>
-  </div>
-  <!-- Componente de pesquisa -->
-  <div class="searchResults" *ngIf="searchResult.length">
-    <div
-    *ngFor="let user of searchResult"
-    class="result"
-    (click)="goToPerfil(user._id)"
-    >
-
-    <app-photo [src]="user.avatar"></app-photo>
-    <div class="infoUser">
-      <strong>{{ user.name }}</strong>
-      <span>{{ user.email }}</span>
-    </div>
-
-    </div>
-  </div>
+	<div class="contentHeader">
+		<div class="logoHeader">
+			<img
+				src="../../../assets/icon/logoHorizontal.svg"
+				alt="Logo horizontal"
+				(click)="returnToHome()"
+			/>
+		</div>
+		<div class="barSearch">
+			<div class="iconSearch">
+				<img
+					src="assets/icon/search.svg"
+					alt="Icone da lupa de pesquisa"
+				/>
+			</div>
+			<input
+				type="text"
+				placeholder="Pesquisar"
+				[(ngModel)]="termSearch"
+				(keyup)="findingUsers()"
+			/>
+		</div>
+		<!-- Navigation -->
+		<app-navigation class="desktop"></app-navigation>
+	</div>
+	<!-- Componente de pesquisa -->
+	<div class="searchResults" *ngIf="searchResult.length">
+		<div
+			*ngFor="let user of searchResult"
+			class="result"
+			(click)="goToPerfil(user._id)"
+		>
+			<app-photo [src]="user.avatar"></app-photo>
+			<div class="infoUser">
+				<strong>{{ user.name }}</strong>
+				<span>{{ user.email }}</span>
+			</div>
+		</div>
+	</div>
 </header>
