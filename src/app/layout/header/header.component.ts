@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { userDevagram } from 'src/app/shared/types/userDevagram.types';
 import { DevagramUserService } from 'src/app/shared/services/devagram-user.service';
-import { AuthenticationServiceService } from 'src/app/authentication/authentication-service.service';
+import { AuthenticationServiceService } from '../../shared/authentication/authentication-service.service';
 
 @Component({
   selector: 'app-header',

@@ -15,7 +15,7 @@ export class PhotoComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
   public obterAvatar(): string {
     if(this.src) {
       return this.src;

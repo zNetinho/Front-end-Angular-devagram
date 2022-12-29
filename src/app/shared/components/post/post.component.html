@@ -1,0 +1,68 @@
+<div class="containerPosts">
+	<a [routerLink]="['/perfil' + '{{ posts._id }}']">
+		<div class="headerPost">
+			<app-photo
+				[src]="post.user?.avatar"
+				classCss="avatarPost"
+			>
+			</app-photo>
+				<strong class="nameUser"> {{ post.user?.name }}</strong>
+		</div>
+		</a>
+		<div class="post">
+			<img
+				 src="{{ post.contentPost }}"
+				 alt="Imagem do post" />
+			<div class="footerPost">
+				<div class="actionPost">
+				   <div class="icons">
+					   <img
+						   [src]="likeOrUnlike()"
+						   alt="Ícone de curtir"
+						   (click)="alternateLike()" />
+					   <img
+						   [src]="obtainIcon()"
+						   alt="Ícone do comentário"
+						   (click)="alternateComment()"
+						   />
+						   <span>Curtido por <strong>{{ post.amountLike }} pessoas</strong></span>
+				   </div>
+				</div>
+				<div class="infoPost">
+					<strong class="nameUser"> {{ post.user?.name }} </strong>
+					<p class="description">{{ post.description.substring(0, limitCaracterDescriptionPost).trim() }}
+					{{ post.description.length > limitCaracterDescriptionPost ? '...' : ''}}
+					<span *ngIf="post.description.length > limitCaracterDescriptionPost"
+						   (click)="obtainFullDescription()">Mais</span>
+					</p>
+				</div>
+				<div class="comments" *ngFor="let comment of post.comments">
+				   <strong class="nameUser"> {{ comment.name }} </strong>
+				   <p class="description"> {{ comment.comment }} </p>
+				</div>
+			</div>
+
+			<div class="commentBox" *ngIf="showBoxComment">
+				<app-photo
+				[src]="userAtive?.avatar"
+				classCss="avatarPost"
+				>
+				</app-photo>
+				<textarea
+					(keyup)="verifyAmountLine()"
+					(keyup.enter)="comment()"
+					[rows]="amountLines"
+					[(ngModel)]="commentNow"
+					autofocus="true"
+					placeholder="Adicione um comentario..."
+				></textarea>
+
+				<button class="btnSubmit desktop"
+						(click)="comment()"
+						type="button"
+				>
+				Publicar
+				</button>
+			</div>
+		</div>
+</div>

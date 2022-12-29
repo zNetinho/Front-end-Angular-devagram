@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { checkedPassword } from '../shared/validators/validatepassword.validator';
 import { RegisterApiService } from './services/register-api.service';
-import { AuthenticationServiceService } from '../authentication/authentication-service.service';
+import { AuthenticationServiceService } from '../shared/authentication/authentication-service.service';
 
 @Component({
   selector: 'app-register',

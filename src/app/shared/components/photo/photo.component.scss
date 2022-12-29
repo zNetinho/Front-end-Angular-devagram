@@ -1,3 +1,4 @@
+@import '../../../../assets/styles/variables.scss';
 
 	.avatar {
 		height: 32px;
@@ -10,6 +11,25 @@
 			width: 40px;
 			height: 40px;
 			object-fit: cover;
+	}
+	}
+
+	@media screen and (min-width: $breakpoint) {
+
+		.avatar {
+		height: 32px;
+		width: 32px;
+		border-radius: 50%;
+		object-fit: cover;
+		margin-right: 8px;
+
+		&.avatarPost {
+			width: 62px;
+			height: 62px;
+			object-fit: cover;
+	}
+
+
 	}
 	}
 

@@ -10,9 +10,8 @@ import { UploadPhotoComponent } from './components/upload-photo/upload-photo.com
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PagePublicComponent } from './views/pages/page-public/page-public.component';
 import { FooterPublicComponent } from './components/footer-public/footer-public.component';
-import { PageLoginModule } from '../page-login/page-login.module';
-import { RegisterModule } from '../register/register.module';
-import { FeedComponent } from './components/feed/feed.component';
+import { FeedComponent } from '../shared/components/feed/feed.component';
+import { PostComponent } from './components/post/post.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +22,7 @@ import { FeedComponent } from './components/feed/feed.component';
     PagePublicComponent,
     FooterPublicComponent,
     FeedComponent,
+    PostComponent,
   ],
   imports: [
     CommonModule,
@@ -38,7 +38,8 @@ import { FeedComponent } from './components/feed/feed.component';
     UploadPhotoComponent,
     PagePublicComponent,
     FooterPublicComponent,
-	FeedComponent
+	FeedComponent,
+	PostComponent
   ]
 })
 export class SharedModule {}

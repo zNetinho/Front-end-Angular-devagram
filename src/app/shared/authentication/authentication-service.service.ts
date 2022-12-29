@@ -1,10 +1,10 @@
 import { Inject, Injectable } from '@angular/core';
 import { devagramCredentials } from './types/credentialsDevagram.types';
 import { resLogin } from './types/resLogin.types';
-import { DevagramApiService } from './../shared/services/devagram-api.service';
+import { DevagramApiService } from '../services/devagram-api.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { DevagramUserService } from '../shared/services/devagram-user.service';
+import { DevagramUserService } from '../services/devagram-user.service';
 import { userLogged } from './types/userLogged.types';
 
 @Injectable({
@@ -65,3 +65,5 @@ export class AuthenticationServiceService extends DevagramApiService {
   }
 
 }
+
+export { userLogged };
