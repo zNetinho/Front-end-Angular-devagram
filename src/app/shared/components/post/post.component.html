@@ -11,7 +11,7 @@
 		</a>
 		<div class="post">
 			<img
-				 src="{{ post.contentPost }}"
+				 src="{{ post.photo }}"
 				 alt="Imagem do post" />
 			<div class="footerPost">
 				<div class="actionPost">
@@ -25,7 +25,7 @@
 						   alt="Ícone do comentário"
 						   (click)="alternateComment()"
 						   />
-						   <span>Curtido por <strong>{{ post.amountLike }} pessoas</strong></span>
+						   <span>Curtido por <strong>{{ post.amountLike }} {{post.amountLike > 1 ? 'Pessoas' : 'Pessoa'}}</strong></span>
 				   </div>
 				</div>
 				<div class="infoPost">
@@ -38,7 +38,7 @@
 				</div>
 				<div class="comments" *ngFor="let comment of post.comments">
 				   <strong class="nameUser"> {{ comment.name }} </strong>
-				   <p class="description"> {{ comment.comment }} </p>
+				   <p class="description"> {{ comment.comments }} </p>
 				</div>
 			</div>
 

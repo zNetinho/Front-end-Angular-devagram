@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Post } from '../../types/post.types';
 import { userLogged } from '../../authentication/authentication-service.service';
 import { AuthenticationServiceService } from '../../authentication/authentication-service.service';
+import { FeedService } from '../../services/feed.service';
+import { ResponseApi } from '../../types/ResponseApi.types';
 
 @Component({
 	selector: 'app-feed',
@@ -11,27 +13,10 @@ import { AuthenticationServiceService } from '../../authentication/authenticatio
 export class FeedComponent implements OnInit {
 
 	public userAtive: userLogged | null = {} as userLogged
-	posts: Array<Post> = [
-		{
-			contentPost:'https://cdn.fansshare.com/images/tumblrimages/nike-backgrounds-tumblr-wallpaper-996000756.jpg',
-			description:'Esse comentario e somente para ter um mock e realizar a estilização antes de chamar da API!, e aqui estamos testando a função para esconder texto',
-			amountLike: 258,
-			comments: [{
-				name:'Bruno',
-				comment:'Lorem ipsum 123'
-			},
-			{
-				name:'Bruno',
-				comment:'Lorem ipsum 123'
-			}],
-			user: {
-				name: 'Thiago',
-				avatar:'https://i0.wp.com/www.multarte.com.br/wp-content/uploads/2018/01/1a57f58e84fe80c494bd2874ad55695b-wallpapers-tumblr-tumblr-wallpaper.jpg?resize=612%2C960&ssl=1'
-			},
-		} as Post
-	];
+	public posts: Array<Post> = [];
 
-	constructor(private authentication: AuthenticationServiceService) {
+	constructor(private authentication: AuthenticationServiceService,
+				private feedService: FeedService) {
 		this.userAtive = this.authentication.obtainUser();
 	   }
 	   usuario(): void {
@@ -39,7 +24,37 @@ export class FeedComponent implements OnInit {
 	   }
 
 	ngOnInit(): void {
+		this.loadingPost()
+	 }
+
+
+
+
+	async loadingPost() {
+		try {
+			let idUser = '';
+			if(this.userAtive === null) {
+				return;
+			}
+			else if (this.userAtive) {
+				idUser = this.userAtive.id;
+			}
+
+			const postsApi = await this.feedService.loadingPosts(idUser);
+
+			this.posts = postsApi.map(post => ({
+				...post,
+				user: post.user || {
+					name: this.userAtive?.name,
+					avatar: this.userAtive?.avatar
+				},
+				likeDone: post.likes.includes(this.userAtive?.id || ''),
+				amountLike: post.likes.length
+			}) as Post)
+
+			console.log(this.posts)
+		} catch (e: any) {
+			console.log(e.error?.erro || 'Erro na função')
+		}
 	}
-
-
- }
+	}

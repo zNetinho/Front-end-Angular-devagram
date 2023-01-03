@@ -6,10 +6,10 @@ export type Post = {
 		name: string,
 		avatar: string
 	},
-	contentPost: string,
+	photo: string,
 	description: string,
 	likes: Array<string>,
 	comments: Array<Comments>,
 	likeDone?: boolean,
-	amountLike?: number
+	amountLike: number
 }

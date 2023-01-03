@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { NavigationComponent } from './navigation/navigation.component';
 import { FooterComponent } from './footer/footer.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 
@@ -12,7 +13,8 @@ import { FooterComponent } from './footer/footer.component';
   declarations: [
     HeaderComponent,
     NavigationComponent,
-    FooterComponent
+    FooterComponent,
+    PerfilComponent
   ],
   imports: [
     CommonModule,
